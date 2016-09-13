@@ -1,0 +1,14 @@
+Test video: https://www.youtube.com/watch?v=5dasaVm7L-Y (c) Ross Bugden CC BY
+
+```
+
+x264 --output intermediate_800k.264 --fps 24 --preset slow --bitrate 800 --vbv-maxrate 4800 --vbv-bufsize 9600 --min-keyint 48 --keyint 48 --scenecut 0 --no-scenecut --pass 1 --video-filter "resize:width=1280,height=720" $file
+
+ffmpeg -i $file  -c:a aac -strict experimental -b:a 96k -ar 32000 -vn audio_96k.mp4
+
+MP4Box -add intermediate_800k.264 -fps 24 epic.mp4
+MP4Box -add ./audio_96k.mp4 -fps 24 epic.mp4
+
+MP4Box -dash 4000 -frag 4000 -rap -segment-name 'seg_$RepresentationID$_' 'epic.mp4#video'  'epic.mp4#audio'
+
+```
