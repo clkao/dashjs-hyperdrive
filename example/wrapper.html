@@ -4,28 +4,18 @@
 
         <!-- streamroot-dash wrapper -->
         <script src="../node_modules/dashjs/dist/dash.all.debug.js"></script>
-        <script src="../dist/wrapper/dashjs-p2p-wrapper.js"></script>
-
-        <!-- p2p graphics and peer stats -->
-        <script src="http://cdn.streamroot.io/2/scripts/peerStat.js"></script>
-        <script src="http://cdn.streamroot.io/2/scripts/p2pGraph.js"></script>
-
+        <script src="../dist/wrapper/dashjs-p2p-wrapper.debug.js"></script>
         <!-- graph dependencies -->
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.css">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
     </head>
     <body>
-
-        <a href="bundle.html">Go to bundle example</a><br><br>
-
         <div>
+            <label>datlink: <input id="datLink" name="datLink" value="c305e3d8cd80d90b9a87b7be6bb1a3b2acdaecac0c2b1d2e44bdc771ea6074d3"/></label>
             <div id="mainfestSelection" />
                 <select id="mpdSelector" name="mpdSelector">
-                    <option value="http://wowza.streamroot.io/vodOriginSite/tears_of_steel720p.mp4/manifest.mpd">ToS (VoD, 1 video)</option>
-                    <option value="http://wowza.streamroot.io/liveorigin/stream4/manifest.mpd">ToS (Live DVR, 1 video)</option>
-                    <option value="http://wowza.streamroot.io/liveorigin/Sample-live.smil/manifest.mpd">Sintel (Live DVR, 3 video)</option>
-                    <option value="http://wowza.streamroot.io/vodOriginSite/Sample-vod.smil/manifest.mpd">Sintel (VoD, 3 video)</option>
+                    <option value="http://localhost:8080/example/epic_dash.mpd">Epic</option>
                 </select>
             </div>
             <div id="playbackStats">
@@ -101,10 +91,11 @@
                 };
 
                 var urlParams = getURLParams(document.location.search);
+                var datkey = document.getElementById("datLink").value;
 
                 var player = dashjs.MediaPlayer().create();
                 var p2pConfig = {
-                    streamrootKey: "ry-tguzre2t",
+                    hyperdriveKey: datkey,
                     debug: true
                 };
                 var liveDelay = Number(urlParams.liveDelay) || 30;

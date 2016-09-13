@@ -1,18 +1,18 @@
 {
-  "name": "streamroot-dashjs-p2p-wrapper",
-  "description": "Streamroot P2P wrapper for the dash.js media player",
-  "version": "1.5.2",
+  "name": "dashjs-hyperdrive",
+  "description": "dash.js media player over hyperdrive",
+  "version": "0.0.1",
   "private": true,
   "author": {
-    "name": "Streamroot",
-    "email": "contact@streamroot.io"
+    "name": "Chia-liang Kao",
+    "email": "clkao@clkao.org"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/streamroot/dashjs-p2p-wrapper"
+    "url": "https://github.com/clkao/dashjs-hyperdrive"
   },
   "bugs": {
-    "url": "https://github.com/streamroot/dashjs-p2p-wrapper/issues"
+    "url": "https://github.com/clkao/dashjs-hyperdrive/issues"
   },
   "license": "MIT",
   "main": "lib/DashjsWrapper.js",
@@ -29,9 +29,12 @@
     "build": "npm run clean && npm run dashjs && npm run wrapper && npm run bundle"
   },
   "dependencies": {
-    "codem-isoboxer": "^0.2.2",
+    "concat-stream": "^1.5.2",
     "dashjs": "2.2.0",
-    "streamroot-p2p": "^4.0.0"
+    "hyperdrive": "^7.4.0",
+    "hyperdrive-archive-swarm": "^4.1.4",
+    "memdb": "^1.3.1",
+    "to-arraybuffer": "^1.0.1"
   },
   "devDependencies": {
     "babel": "^6.3.26",
