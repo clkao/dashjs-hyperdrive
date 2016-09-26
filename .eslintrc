@@ -6,7 +6,8 @@
         "node": true
     },
     "globals": {
-        "dashjs": true
+        "dashjs": true,
+        "_VERSION_": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
